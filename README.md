@@ -1,8 +1,8 @@
 # crud-javaweb
 Creacion de Crud en javaweb con Xampp  uso de dependencias y consultas en codigo
 
-
-#Base de Datos de prueba
+```
+Base de Datos de prueba
 
 DROP DATABASE IF EXISTS javabd;
 CREATE DATABASE IF NOT EXISTS javabd;
@@ -21,4 +21,4 @@ INSERT INTO tblempleados (nombre, direccion, telefono) VALUES
 ('Laura Martínez', 'Avenida D, #321', '555-4321'),
 ('Sergio López', 'Calle E, #654', '555-8765'),
 ('Ana Sánchez', 'Avenida F, #987', '555-2345');
-
+```
