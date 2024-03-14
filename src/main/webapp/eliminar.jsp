@@ -14,7 +14,7 @@
                 <form action="eliminar.jsp" method="POST">
                     <div class="mb-3">
                         <label for="idUsuario" class="form-label">Seleccionar usuario</label>
-                        <select class="form-select" id="idUsuario" name="idUsuario" required>
+                        <select class="form-select" id="idUsuario" name="idUsuario" required disabled>
                             <% 
                                 try {
                                     Connection con = DriverManager.getConnection("jdbc:mysql://localhost/javabd?user=root&password=");
@@ -45,7 +45,7 @@
                         {
                         try {
                             // Obtener el ID seleccionado (si está presente en la solicitud)
-                            String selectedId = request.getParameter("id");
+                            String selectedId = request.getParameter("idUsuario");
 
                             // Verificar que el ID no sea nulo o vacío antes de ejecutar la eliminación
                             if (selectedId != null && !selectedId.isEmpty()) {

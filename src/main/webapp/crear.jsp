@@ -40,7 +40,8 @@
 
                            // Preparar la declaración SQL para la inserción
                            String insertQuery = "INSERT INTO tblempleados(nombre, direccion, telefono) VALUES (?, ?, ?)";
-                           try (PreparedStatement statement = con.prepareStatement(insertQuery)) {
+                           try (PreparedStatement statement = con.prepareStatement(insertQuery)) 
+                           {
                                statement.setString(1, name);
                                statement.setString(2, direccion);
                                statement.setString(3, telefono);

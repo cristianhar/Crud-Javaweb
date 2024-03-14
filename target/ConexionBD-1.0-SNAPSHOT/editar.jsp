@@ -11,20 +11,27 @@
         <div class="row">
             <div class="col-sm">
                 <h2>Modificar empleado</h2>
-                <form action="" method="POST">
+                <form action="editar.jsp" method="POST">
                     <div class="mb-3">
                         <label for="idUsuario" class="form-label">Seleccionar usuario</label>
-                        <select class="form-select" id="idUsuario" name="idUsuario" required>
+                        <select class="form-select" id="idUsuario" name="idUsuario" required disabled>
                             <% 
+                                String selectedDireccion = ""; // Declarar aquí
+                                String selectedTelefono = "";  // Declarar aquí
                                 try {
                                     Connection con = DriverManager.getConnection("jdbc:mysql://localhost/javabd?user=root&password=");
                                     Statement st = con.createStatement();
-                                    ResultSet rs = st.executeQuery("SELECT id, nombre FROM tblempleados");
+                                    ResultSet rs = st.executeQuery("SELECT id, nombre ,direccion ,telefono FROM tblempleados");
                                     while(rs.next()) {
                                         // Obtener el ID seleccionado (si está presente en la solicitud)
                                         String selectedId = request.getParameter("id");
+                                        // Obtener la dirección y el teléfono correspondientes al ID seleccionado
+                                        if (selectedId != null && selectedId.equals(rs.getString("id"))) {
+                                            selectedDireccion = rs.getString("direccion");
+                                            selectedTelefono = rs.getString("telefono");
+                                        }
                             %>
-                                        <option value="<%= rs.getInt("id") %>" <% if (selectedId != null && selectedId.equals(rs.getString("id"))) out.print("selected"); %>><%= rs.getString("nombre") %></option>
+                                        <option  value="<%= rs.getInt("id") %>" <% if (selectedId != null && selectedId.equals(rs.getString("id"))) out.print("selected"); %>><%= rs.getString("nombre") %></option>
                             <%
                                     }
                                 } catch (SQLException e) {
@@ -35,11 +42,11 @@
                     </div>
                     <div class="mb-3">
                         <label for="direccion" class="form-label">Dirección</label>
-                        <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Nueva Direccion" required>
+                        <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Nueva direccion" value="<%= selectedDireccion %>" required>
                     </div>
                     <div class="mb-3">
                         <label for="telefono" class="form-label">Teléfono</label>
-                        <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Nuevo Telefono" required>
+                        <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Nuevo Telefono" value="<%= selectedTelefono %>" required>
                     </div>
                     <button type="submit" class="btn btn-primary">Modificar</button>
                     <button type="reset" class="btn btn-danger">Resetear</button>
