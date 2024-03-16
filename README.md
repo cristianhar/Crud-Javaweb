@@ -1,5 +1,5 @@
 # Crud-Javaweb
-Creacion de Crud en javaweb con Xampp  uso de dependencias y consultas en codigo
+Creacion de Crud en javaweb con Xampp  uso de dependencias y consultas en codigo algo basico para un crear,editar,eliminar,mostrar.
 
 ```
 Base de Datos de prueba
