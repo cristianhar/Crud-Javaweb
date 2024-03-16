@@ -4,6 +4,14 @@ Creacion de Crud en javaweb con Xampp  uso de dependencias y consultas en codigo
 ```
 Base de Datos de prueba
 
+/* 
+
+@AUTOR: CRISTIAN ARBOLEDA
+@FECHA: 2024/03/10
+@DESCRIPCION : BASE DE DATOS DE PRUEBA JAVA CON CONEXION MYSQL
+
+
+ */
 DROP DATABASE IF EXISTS javabd;
 CREATE DATABASE IF NOT EXISTS javabd;
 USE javabd;
