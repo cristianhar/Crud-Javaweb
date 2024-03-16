@@ -1,4 +1,4 @@
-# crud-javaweb
+# Crud-Javaweb
 Creacion de Crud en javaweb con Xampp  uso de dependencias y consultas en codigo
 
 ```
